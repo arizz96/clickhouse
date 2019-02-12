@@ -17,6 +17,4 @@ ratings:
   paths:
   - "**.rb"
 exclude_paths:
-- lib/clickhouse/cli/
-- script/
 - test/
