@@ -53,8 +53,8 @@ module Clickhouse
           options[:rows] ||= yield([])
           generate_csv options[:rows], options[:names]
         end
-        column_names = if options[:csv].present?
-          "(#{options[:csv].split("\n").first})"
+        column_names = if !options[:csv].to_s.empty?
+          "(#{options[:csv].to_s.split("\n").first})"
         end
         execute("INSERT INTO #{table}#{column_names} FORMAT CSVWithNames", options[:csv])
       end
